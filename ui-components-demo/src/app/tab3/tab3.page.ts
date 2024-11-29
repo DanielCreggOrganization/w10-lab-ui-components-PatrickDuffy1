@@ -10,5 +10,16 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonButton, IonButtons, IonModal, IonInput, IonLabel, IonItem],
 })
 export class Tab3Page {
- 
+  constructor(private modalController: ModalController) {}
+
+  // Close the modal
+  async closeModal() {
+    const modal = await this.modalController.getTop(); // Get the top modal (the one that is currently open)
+    if (modal) {
+      await modal.dismiss();  // Dismiss the modal
+    }
+  }
 }
+
+ 
+
